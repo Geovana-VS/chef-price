@@ -1,0 +1,43 @@
+<section>
+  <form [formGroup]="formulario">
+
+    <div>
+      <label for="nome">Nome do Material:</label>
+      <input type="text" id="nome" formControlName="nome" required>
+    </div>
+
+    <div>
+      <label for="marca">Marca:</label>
+      <input type="text" id="marca" formControlName="marca" required>
+    </div>
+
+    <div>
+      <label for="unidade">Unidade de Medida:</label>
+      <select id="unidade" formControlName="unidadeDeMedida" required>
+        <option value="" disabled selected>Selecione a Unidade</option>
+        <option value="u">Unidade</option>
+        <option value="ml">Mililitros (ml)</option>
+        <option value="l">Litros</option>
+        <option value="g">Gramas</option>
+        <option value="kg">Quilogramas (kg)</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="quantidadeEmbalagem">Quantidade por embalagem</label>
+      <input type = "number" formControlName = "quantidadeEmbalagem" required>
+    </div>
+
+    <div>
+      <label for="valor">Preço: R$</label>
+      <input type="number"  formControlName="valor" step="0.01" min="0" required>
+    </div>
+
+    <button  (click)="criar()" >Enviar</button>
+  </form>
+
+<p>{{ formulario.get('nome')?.value }} </p>
+<p>{{ formulario.get('marca')?.value }} </p>
+<p>{{ formulario.get('unidadeDeMedida')?.value }} </p>
+<p>{{ formulario.get('valor')?.value }} </p>
+</section>
