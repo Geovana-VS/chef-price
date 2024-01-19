@@ -1,0 +1,101 @@
+{
+  "materiais": [
+    {
+      "nome": "leite",
+      "marca": "italac",
+      "unidadeDeMedida": "ml",
+      "quantidadeEmbalagem": 1000,
+      "valor": 5,
+      "id": 1
+    },
+    {
+      "nome": "chocolate",
+      "marca": "norcal",
+      "unidadeDeMedida": "g",
+      "quantidadeEmbalagem": 2010,
+      "valor": 60,
+      "id": 2
+    }
+  ],
+  "receitas": [
+    {
+      "id": "receita01",
+      "nome": "Bolo de Chocolate",
+      "imagem": "url_da_imagem_bolo_de_chocolate.jpg",
+      "observacoes": "Ideal para festas e reuniões familiares.",
+      "video": "url_do_video_bolo_de_chocolate.mp4",
+      "materiais": [
+        {
+          "id": 3,
+          "nome": "farinha de trigo",
+          "unidadeDeMedida": "kg",
+          "valor": 3.2,
+          "marca": "Padeiro"
+        },
+        {
+          "id": 8,
+          "nome": "chocolate em pó",
+          "unidadeDeMedida": "g",
+          "valor": 7.8,
+          "marca": "CacauShow"
+        },
+        {
+          "id": 2,
+          "nome": "leite condensado",
+          "unidadeDeMedida": "ml",
+          "valor": 4.5,
+          "marca": "Leiteiro"
+        }
+      ]
+    },
+    {
+      "id": "receita02",
+      "nome": "Feijoada Completa",
+      "imagem": "url_da_imagem_feijoada_completa.jpg",
+      "observacoes": "Um prato tradicional brasileiro, perfeito para o fim de semana.",
+      "video": "url_do_video_feijoada_completa.mp4",
+      "materiais": [
+        {
+          "id": 4,
+          "nome": "feijão preto",
+          "unidadeDeMedida": "kg",
+          "valor": 5.6,
+          "marca": "GranFazenda"
+        },
+        {
+          "id": 7,
+          "nome": "arroz integral",
+          "unidadeDeMedida": "kg",
+          "valor": 4.4,
+          "marca": "SaúdeGrão"
+        }
+      ]
+    },
+    {
+      "id": "receita03",
+      "nome": "Salada Mediterrânea",
+      "imagem": "url_da_imagem_salada_mediterranea.jpg",
+      "observacoes": "Leve e nutritiva, ideal para um almoço de verão.",
+      "video": "url_do_video_salada_mediterranea.mp4",
+      "materiais": [
+        {
+          "id": 5,
+          "nome": "azeite de oliva",
+          "unidadeDeMedida": "ml",
+          "valor": 19.9,
+          "marca": "Olivas"
+        },
+        {
+          "id": 6,
+          "nome": "molho de tomate",
+          "unidadeDeMedida": "g",
+          "valor": 2.99,
+          "marca": "Tomatito"
+        }
+      ]
+    }
+  ],
+  "lista-de-compras": {
+    "name": "typicode"
+  }
+}
