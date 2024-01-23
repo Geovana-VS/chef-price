@@ -7,7 +7,9 @@ export class Receita {
   observacoes: string;
   video: string;
   materiais:Material[];
-  rendimento:number
+  rendimento:number;
+  lucroGastosIndiretos:number;
+  lucroGastosDiretos:number;
 
   constructor( receita:Receita) {
     this.id = receita.id;
@@ -16,6 +18,8 @@ export class Receita {
     this.observacoes = receita.observacoes;
     this.video = receita.video;
     this.materiais = receita.materiais;
-    this.rendimento = receita.rendimento
+    this.rendimento = receita.rendimento;
+    this.lucroGastosDiretos = receita.lucroGastosDiretos;
+    this.lucroGastosIndiretos = receita.lucroGastosIndiretos
   }
 }

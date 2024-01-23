@@ -6,13 +6,15 @@ import { ListaReceitasComponent } from './components/lista-receitas/lista-receit
 import { ReceitaComponent } from './components/receita/receita.component';
 import { AdicionarMateriaisComponent } from './components/adicionar-materiais/adicionar-materiais.component';
 import { FormsModule } from '@angular/forms';
+import { AnaliseDeCustosComponent } from './components/analise-de-custos/analise-de-custos.component';
 
 
 @NgModule({
   declarations: [
     ListaReceitasComponent,
     ReceitaComponent,
-    AdicionarMateriaisComponent
+    AdicionarMateriaisComponent,
+    AnaliseDeCustosComponent
   ],
   imports: [
     CommonModule,

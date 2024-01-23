@@ -15,6 +15,22 @@
       "quantidadeEmbalagem": 2010,
       "valor": 60,
       "id": 2
+    },
+    {
+      "id": "c96a",
+      "nome": "açucar",
+      "marca": "uniao",
+      "unidadeDeMedida": "g",
+      "quantidadeEmbalagem": 1000,
+      "valor": 34.5
+    },
+    {
+      "id": "0110",
+      "nome": "material teste 2",
+      "marca": "teste",
+      "unidadeDeMedida": "ml",
+      "quantidadeEmbalagem": 1500,
+      "valor": 54.36
     }
   ],
   "receitas": [

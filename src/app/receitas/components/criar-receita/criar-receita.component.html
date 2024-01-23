@@ -3,60 +3,55 @@
   <head>
     <title>Formulário de Receitas</title>
   </head>
-    <h2>Nova Receita</h2>
+  <h2>Nova Receita</h2>
 
-    <form [formGroup]="formulario">
+  <form [formGroup]="formulario" (ngSubmit)="calcularCusto()">
 
-      <label for="nome">Nome:</label><br>
-      <input type="text" id="nome" formControlName="nome"><br>
+    <label for="nome">Nome:</label><br>
+    <input type="text" id="nome" formControlName="nome"><br>
 
-      <label for="imagem">URL da Imagem:</label><br>
-      <input type="text" id="imagem" formControlName="imagem"><br>
+    <label for="imagem">URL da Imagem:</label><br>
+    <input type="text" id="imagem" formControlName="imagem"><br>
 
-      <div *ngFor="let material of materiaisNecessarios">
-          <ul>
-            <li>
-               <h6>{{ material.nome}}</h6>
-               <p>Quantidade:{{ material.quantidade}}{{material.unidadeMedida}}</p>
-               <p>Custo:{{material.custo}}</p>
-            </li>
-          </ul>
-      </div>
-
-
-      <a routerLink='/receita/adicionar-material' class="btn btn-link">Adicionar Material</a><br>
+    <div *ngFor="let material of materiaisNecessarios">
+      <ul>
+        <li>
+          <h6>{{ material.nome}}</h6>
+          <p>Quantidade:{{ material.quantidade}}{{material.unidadeMedida}}</p>
+          <p>Custo:{{material.custo}}</p>
+        </li>
+      </ul>
+    </div>
 
 
-      <label for="video">URL do Vídeo:</label><br>
-      <input type="text" id="video" formControlName="video"><br><br>
-
-      <label for="observacoes">Observações:</label><br>
-      <textarea id="observacoes" formControlName="observacoes" rows="4" cols="50"></textarea><br>
-
-      <label for="rendimento">Qual o rendimento dessa receita?
-      <input type="text" formControlName = "rendimento" id="rendimento">
-      </label>
+    <a routerLink='/receita/adicionar-material' class="btn btn-link">Adicionar Material</a><br>
 
 
-      <h3>Lucro em %</h3>
+    <h3>Lucro em %</h3>
+    <label for="rendimento">Qual o rendimento dessa receita?
+      <input type="number" formControlName="rendimento" id="rendimento">
+    </label>
 
-      <p>custo total da receita{{custoDaReceita}}</p>
+    <p>custo total da receita R${{custoDaReceita}}</p>
 
-      <label for="gastosIndiretos">Gastos indiretos
-        <input type="number" formControlName = "gastosIndiretos" id="gastosIndiretos">
-      </label>
-      <label for="gastosDiretos">Gastos diretos
-        <input type="number" formControlName = "gastosDiretos" id="gastosDiretos">
-      </label>
+    <label for="gastosIndiretos">Porcentagem sobre custos indiretos(mão de obra,luz,água)
+      <input type="number" formControlName="gastosIndiretos" id="gastosIndiretos" placeholder="%">
+    </label><br>
+    <label for="gastosDiretos">Lucro esperado
+      <input type="number" formControlName="gastosDiretos" id="gastosDiretos" placeholder="%">
+    </label><br>
 
-      <button (click)="calcularCusto()">Calcular</button>
+    <button type="submit">Calcular</button>
 
-      <div *ngIf="calcularCusto">
-         <p>{{ custoDaReceita  }}</p>
-      </div>
+    <label for="video">URL do Vídeo:</label><br>
+    <input type="text" id="video" formControlName="video"><br><br>
+
+
+    <label for="observacoes">Observações:</label><br>
+    <textarea id="observacoes" formControlName="observacoes" rows="4" cols="50"></textarea><br>S
+
 
   </form>
-
 
 
 </section>
@@ -65,4 +60,3 @@
 <p>{{formulario.get('imagem')?.value}}</p>
 <p>{{formulario.get('observacao')?.value}}</p>
 <p>{{formulario.get('video')?.value}}</p>
-

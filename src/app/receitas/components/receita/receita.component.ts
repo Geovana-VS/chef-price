@@ -16,7 +16,9 @@ export class ReceitaComponent implements OnInit{
    observacoes:"",
    materiais:[],
    rendimento:0,
-   video:""
+   video:"",
+   lucroGastosDiretos: 0,
+   lucroGastosIndiretos: 0,
    }
 
   constructor(){}

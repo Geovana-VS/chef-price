@@ -9,29 +9,33 @@ import { Observable, of } from 'rxjs';
 })
 export class ReceitaService {
 
-  public custoDaReceita:number = 0;
+  public custoDaReceita: number = 0;
+  public gastosDiretos: number = 0;
+  public gastosIndiretos: number = 0;
+  public rendimento: number = 0;
 
-  constructor( private httpclient:HttpClient) { }
+
+  constructor(private httpclient: HttpClient) { }
 
 
 
-  public listarReceitas():Observable<Receita[]>{
+  public listarReceitas(): Observable<Receita[]> {
     return this.httpclient.get<Receita[]>("http://localhost:3000/receitas")
   }
 
-  public criarReceita( receita :Receita):Observable<Receita>{
-     return this.httpclient.post<Receita>("http://localhost:3000/receitas",receita)
+  public criarReceita(receita: Receita): Observable<Receita> {
+    return this.httpclient.post<Receita>("http://localhost:3000/receitas", receita)
   }
 
-  public excluirReceita(id:string):Observable<Receita[]>{
+  public excluirReceita(id: string): Observable<Receita[]> {
     return this.httpclient.delete<Receita[]>(`http://localhost:3000/receitas/${id}`)
   }
 
-  public editarListaDeReceitas(receita:Receita):Observable<Receita[]>{
-   return this.httpclient.put<Receita[]>(`http://localhost:3000/receitas/${receita.id}`,receita)
+  public editarListaDeReceitas(receita: Receita): Observable<Receita[]> {
+    return this.httpclient.put<Receita[]>(`http://localhost:3000/receitas/${receita.id}`, receita)
   }
 
-  materiaisDaReceita(){
+  materiaisDaReceita() {
 
   }
 }
