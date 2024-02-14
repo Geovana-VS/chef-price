@@ -1,30 +1,39 @@
 <section>
-
   <head>
     <title>Formulário de Receitas</title>
   </head>
   <h2>Nova Receita</h2>
 
-  <form [formGroup]="formulario" (ngSubmit)="calcularCusto()">
+  <form [formGroup]="formulario">
 
     <label for="nome">Nome:</label><br>
     <input type="text" id="nome" formControlName="nome"><br>
 
+    <div>
+
     <label for="imagem">URL da Imagem:</label><br>
     <input type="text" id="imagem" formControlName="imagem"><br>
+
+    <label for="video">URL do Vídeo:</label><br>
+    <input type="text" id="video" formControlName="video"><br><br>
+
+    </div>
+
+    <div>
+      <button (click)="adicionarMateriais()"  type="button">Adicionar Material</button>
+    </div>
+
 
     <div *ngFor="let material of materiaisNecessarios">
       <ul>
         <li>
           <h6>{{ material.nome}}</h6>
-          <p>Quantidade:{{ material.quantidade}}{{material.unidadeMedida}}</p>
-          <p>Custo:{{material.custo}}</p>
+          <p>Quantidade:{{ material.quantidade}} {{ material.unidadeDeMedida }}</p>
+          <p>Custo:{{ material.custo }}</p>
         </li>
       </ul>
     </div>
 
-
-    <a routerLink='/receita/adicionar-material' class="btn btn-link">Adicionar Material</a><br>
 
 
     <h3>Lucro em %</h3>
@@ -32,7 +41,7 @@
       <input type="number" formControlName="rendimento" id="rendimento">
     </label>
 
-    <p>custo total da receita R${{custoDaReceita}}</p>
+    <p>Custo total da receita R${{ custoDosMateriais }}</p>
 
     <label for="gastosIndiretos">Porcentagem sobre custos indiretos(mão de obra,luz,água)
       <input type="number" formControlName="gastosIndiretos" id="gastosIndiretos" placeholder="%">
@@ -41,22 +50,14 @@
       <input type="number" formControlName="gastosDiretos" id="gastosDiretos" placeholder="%">
     </label><br>
 
-    <button type="submit">Calcular</button>
-
-    <label for="video">URL do Vídeo:</label><br>
-    <input type="text" id="video" formControlName="video"><br><br>
-
+    <div>
+      <button (click)="analisarCustos()" type="submit">Calcular</button>
+    </div>
 
     <label for="observacoes">Observações:</label><br>
-    <textarea id="observacoes" formControlName="observacoes" rows="4" cols="50"></textarea><br>S
+    <textarea id="observacoes" formControlName="observacoes" rows="4" cols="50"></textarea><br>
 
-
+    <button (click)="criarReceita()">Salvar</button>
   </form>
 
-
 </section>
-
-<p>{{formulario.get('nome')?.value}}</p>
-<p>{{formulario.get('imagem')?.value}}</p>
-<p>{{formulario.get('observacao')?.value}}</p>
-<p>{{formulario.get('video')?.value}}</p>

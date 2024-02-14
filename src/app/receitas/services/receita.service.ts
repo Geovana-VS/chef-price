@@ -2,17 +2,39 @@
 import { Injectable } from '@angular/core';
 import { Receita } from '../models/receita.model';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
+import { Material } from 'src/app/material/models/material.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReceitaService {
 
-  public custoDaReceita: number = 0;
-  public gastosDiretos: number = 0;
-  public gastosIndiretos: number = 0;
-  public rendimento: number = 0;
+  public custosDosMateriais:number=0
+
+  public informacoesTelaDeCriarReceita: {
+    nome: string;
+    imagem:string;
+    video:string;
+    gastosDiretos: number;
+    gastosIndiretos: number;
+    rendimento: number;
+    observacoes:string;
+
+
+  } = {
+    nome: "",
+    imagem:"",
+    video:"",
+    gastosDiretos: 0,
+    gastosIndiretos: 0,
+    rendimento: 0,
+    observacoes:"",
+
+
+  };
+
+  public selecionados?: Material[] = []
 
 
   constructor(private httpclient: HttpClient) { }
@@ -23,7 +45,9 @@ export class ReceitaService {
     return this.httpclient.get<Receita[]>("http://localhost:3000/receitas")
   }
 
-  public criarReceita(receita: Receita): Observable<Receita> {
+
+  public criarReceita(receita: Receita, materiaisDaReceita:Material[]): Observable<Receita> {
+    receita.materiais = materiaisDaReceita;
     return this.httpclient.post<Receita>("http://localhost:3000/receitas", receita)
   }
 
@@ -35,7 +59,5 @@ export class ReceitaService {
     return this.httpclient.put<Receita[]>(`http://localhost:3000/receitas/${receita.id}`, receita)
   }
 
-  materiaisDaReceita() {
 
-  }
 }

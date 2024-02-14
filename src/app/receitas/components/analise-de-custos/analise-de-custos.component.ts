@@ -7,10 +7,12 @@ import { ReceitaService } from '../../services/receita.service';
   styleUrls: ['./analise-de-custos.component.css']
 })
 export class AnaliseDeCustosComponent implements OnInit {
-  gastosDiretos: number = +(this.receita.gastosDiretos);
-  gastosIndiretos: number = this.receita.gastosIndiretos;
-  rendimento: number = this.receita.rendimento;
-  custoDosMateriais: number = this.receita.custoDaReceita;
+
+  nome: string = "";
+  gastosDiretos: number = 0;
+  gastosIndiretos: number = 0;
+  rendimento: number = 0;
+  custoDosMateriais: number = 0;
 
   custoPorUnidade: number = 0;
   lucroTotal: number = 0;
@@ -21,20 +23,28 @@ export class AnaliseDeCustosComponent implements OnInit {
 
 
 
-  constructor(private receita: ReceitaService) { }
+  constructor(private receitaService: ReceitaService) { }
 
 
   ngOnInit(): void {
+    this.carregarInformacoes();
     this.analisarCusto();
   }
 
-  analisarCusto() {
-    this.custoTotal = +(this.custoDosMateriais + (this.gastosIndiretos * this.custoDosMateriais) / 100).toFixed(2);
-    this.gastosAdicionais = +((this.gastosIndiretos * this.custoDosMateriais) / 100).toFixed(2);
-    this.custoPorUnidade = +(this.custoTotal / this.rendimento).toFixed(2);
-    this.lucroTotal = +(this.custoTotal * (this.gastosDiretos / 100)).toFixed(2);
-    this.valorDeVenda = +((this.custoTotal + this.lucroTotal) / this.rendimento).toFixed(2);
+  private carregarInformacoes():void {
+        this.nome = this.receitaService.informacoesTelaDeCriarReceita.nome;
+        this.gastosDiretos = (this.receitaService.informacoesTelaDeCriarReceita.gastosDiretos);
+        this.gastosIndiretos = this.receitaService.informacoesTelaDeCriarReceita.gastosIndiretos;
+        this.rendimento = this.receitaService.informacoesTelaDeCriarReceita.rendimento;
+        this.custoDosMateriais = this.receitaService.custosDosMateriais
+  }
 
+  private analisarCusto():void{
+        this.custoTotal = +(this.custoDosMateriais + (this.gastosIndiretos * this.custoDosMateriais) / 100).toFixed(2);
+        this.gastosAdicionais = +((this.gastosIndiretos * this.custoDosMateriais) / 100).toFixed(2);
+        this.custoPorUnidade = +(this.custoTotal / this.rendimento).toFixed(2);
+        this.lucroTotal = +(this.custoTotal * (this.gastosDiretos / 100)).toFixed(2);
+        this.valorDeVenda = +((this.custoTotal + this.lucroTotal) / this.rendimento).toFixed(2);
 
   }
 }

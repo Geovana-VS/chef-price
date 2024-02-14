@@ -9,12 +9,12 @@
           {{ material.nome }}
 
           <input *ngIf="material.selecionado" type="number" [(ngModel)]="material.quantidade"
-            placeholder="{{material.unidadeDeMedida}}">
+            placeholder="{{ material.unidadeDeMedida }}">
           <p>{{ material.valor }}</p>
           <p>{{ material.custo }}</p>
         </li>
       </ul>
     </div>
   </div>
-  <button (click)="salvarLista()">Adicionar</button>
+  <button (click)="aoClicarNoAdicionar()">Adicionar</button>
 </section>

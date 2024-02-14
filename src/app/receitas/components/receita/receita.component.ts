@@ -1,29 +1,29 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Receita } from '../../models/receita.model';
+import { MaterialService } from 'src/app/material/services/material.service';
+import { Material } from 'src/app/material/models/material.model';
+import { ReceitaService } from '../../services/receita.service';
 
 @Component({
   selector: 'app-receita',
   templateUrl: './receita.component.html',
   styleUrls: ['./receita.component.css']
 })
-export class ReceitaComponent implements OnInit{
+export class ReceitaComponent implements OnInit {
 
-   @Input()receita: Receita = {
+  @Input() receita?: Receita;
 
-   id:"",
-   nome:"",
-   imagem:"",
-   observacoes:"",
-   materiais:[],
-   rendimento:0,
-   video:"",
-   lucroGastosDiretos: 0,
-   lucroGastosIndiretos: 0,
-   }
 
-  constructor(){}
+
+  materiaisNecessarios:Material[]=[];
+
+
+  constructor( private receitaService : ReceitaService) { }
 
   ngOnInit(): void {
 
+
   }
+
+
 }

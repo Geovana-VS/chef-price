@@ -11,28 +11,16 @@ import { ReceitaService } from '../../services/receita.service';
 export class ListaReceitasComponent implements OnInit {
 
   listaDeReceitas: Receita[] = [];
-  formularioDaReceita: FormGroup;
 
-  constructor(private service: ReceitaService,
-    private formbilder: FormBuilder) {
-    this.formularioDaReceita = this.formbilder.group({
-      id: [""],
-      nome: [""],
-      imagem: [""],
-      observacoes: [""],
-      video: [""],
-      materiais: [""]
-    })
-
-  }
+  constructor(private service: ReceitaService) { }
 
   ngOnInit(): void {
-
+    this.listarReceitas()
   }
 
-  listarReceitas(): void {
-    this.service.listarReceitas().subscribe(receita=>
-      this.listaDeReceitas = receita )
+  public listarReceitas(): void {
+    this.service.listarReceitas().subscribe(receita =>
+      this.listaDeReceitas = receita)
 
   }
 

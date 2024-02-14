@@ -10,6 +10,7 @@ export class Receita {
   rendimento:number;
   lucroGastosIndiretos:number;
   lucroGastosDiretos:number;
+  custoDaReceita:number;
 
   constructor( receita:Receita) {
     this.id = receita.id;
@@ -20,6 +21,7 @@ export class Receita {
     this.materiais = receita.materiais;
     this.rendimento = receita.rendimento;
     this.lucroGastosDiretos = receita.lucroGastosDiretos;
-    this.lucroGastosIndiretos = receita.lucroGastosIndiretos
+    this.lucroGastosIndiretos = receita.lucroGastosIndiretos;
+    this.custoDaReceita = receita.custoDaReceita;
   }
 }

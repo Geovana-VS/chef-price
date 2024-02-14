@@ -2,16 +2,15 @@
   <h1>Lista de receitas</h1>
   <button routerLink="criar-receita">Criar nova receita </button>
 
-  <div *ngFor= " let receita of listaDeReceitas">
-     <ul>
+  <div *ngFor=" let receitaDaLista of listaDeReceitas">
+    <ul>
       <li>
-        <app-receita [receita] = "receita"></app-receita>
+        <app-receita [receita]="receitaDaLista"></app-receita>
       </li>
-     </ul>
-     <button> Excluir</button>
-     <button> Editar</button>
+    </ul>
+    <button> Excluir</button>
+    <button> Editar</button>
   </div>
 
 
 </section>
-
