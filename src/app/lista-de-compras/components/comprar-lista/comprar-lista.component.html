@@ -1,0 +1,10 @@
+<section>
+  <h2>Itens da Lista Selecionada</h2>
+  <div *ngFor="let item of listasDeCompras">
+    <p>Nome do Item: {{ item.nomeItem }}</p>
+    <p>Quantidade: {{ item.quantidade }}</p>
+    <p>Marca: {{ item.marca }}</p>
+    <p>Valor: {{ item.valor }}</p>
+    <p>Categoria: {{ item.categoria }}</p>
+  </div>
+</section>

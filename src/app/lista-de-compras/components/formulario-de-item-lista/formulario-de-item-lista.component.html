@@ -1,0 +1,23 @@
+<section>
+  <form [formGroup]="itemDaLista">
+    <div>
+      <label for="nomeItem">Item</label>
+      <input type="text" formControlName="nomeItem">
+    </div>
+    <div>
+      <label for="quantidade">Quantidade</label>
+      <input type="text" formControlName="quantidade">
+    </div>
+    <div>
+      <label for="marca">Marca</label>
+      <input type="text" formControlName="marca">
+    </div>
+    <div>
+      <label for="categoria">Selecione um item</label>
+      <select formControlName="categoria">
+        <option *ngFor="let item of categoria" [value]="item.nome">{{ item.nome }}</option>
+      </select>
+    </div>
+      <button (click)="adicionarItem()">Adicionar</button>
+  </form>
+</section>
