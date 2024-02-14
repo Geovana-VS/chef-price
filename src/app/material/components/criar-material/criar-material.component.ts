@@ -34,7 +34,6 @@ export class CriarMaterialComponent implements OnInit {
 
 
   criar(){
-    console.log("lasanha")
      this.service.criarMateriais(this.formulario.value).subscribe(()=>{
        this.router.navigate(["/material"])
      })

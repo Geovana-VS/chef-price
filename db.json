@@ -1,36 +1,68 @@
 {
   "materiais": [
     {
-      "nome": "leite",
-      "marca": "italac",
-      "unidadeDeMedida": "ml",
+      "nome": "Farinha de Trigo",
+      "marca": "Dona Farinha",
+      "unidadeDeMedida": "kg",
       "quantidadeEmbalagem": 1000,
-      "valor": 5,
+      "valor": 3.5,
       "id": 1
     },
     {
-      "nome": "chocolate",
-      "marca": "norcal",
+      "nome": "Chocolate em Pó",
+      "marca": "Chocolícia",
       "unidadeDeMedida": "g",
-      "quantidadeEmbalagem": 2010,
-      "valor": 60,
+      "quantidadeEmbalagem": 200,
+      "valor": 8,
       "id": 2
     },
     {
       "id": "c96a",
-      "nome": "açucar",
-      "marca": "uniao",
+      "nome": "Açúcar Mascavo",
+      "marca": "União Orgânico",
       "unidadeDeMedida": "g",
-      "quantidadeEmbalagem": 1000,
-      "valor": 34.5
+      "quantidadeEmbalagem": 500,
+      "valor": 6.99
     },
     {
       "id": "0110",
-      "nome": "material teste 2",
-      "marca": "teste",
+      "nome": "Leite Condensado",
+      "marca": "Leitinho da Serra",
       "unidadeDeMedida": "ml",
-      "quantidadeEmbalagem": 1500,
-      "valor": 54.36
+      "quantidadeEmbalagem": 400,
+      "valor": 2.5
+    },
+    {
+      "id": "248b",
+      "nome": "Margarina",
+      "marca": "MargarDelícia",
+      "unidadeDeMedida": "g",
+      "quantidadeEmbalagem": 500,
+      "valor": 4.8
+    },
+    {
+      "id": "154a",
+      "nome": "Macarrão",
+      "marca": "Doria",
+      "unidadeDeMedida": "g",
+      "quantidadeEmbalagem": 500,
+      "valor": 4.9
+    },
+    {
+      "id": "ecf4",
+      "nome": "Bolacha Maisena",
+      "marca": "Mabel",
+      "unidadeDeMedida": "g",
+      "quantidadeEmbalagem": 395,
+      "valor": 6
+    },
+    {
+      "id": "9fd7",
+      "nome": "Cenoura",
+      "marca": "natureza",
+      "unidadeDeMedida": "g",
+      "quantidadeEmbalagem": 1000,
+      "valor": 8
     }
   ],
   "receitas": [
@@ -43,21 +75,21 @@
       "materiais": [
         {
           "id": 3,
-          "nome": "farinha de trigo",
+          "nome": "Farinha de Trigo",
           "unidadeDeMedida": "kg",
           "valor": 3.2,
           "marca": "Padeiro"
         },
         {
           "id": 8,
-          "nome": "chocolate em pó",
+          "nome": "Chocolate em Pó",
           "unidadeDeMedida": "g",
           "valor": 7.8,
           "marca": "CacauShow"
         },
         {
           "id": 2,
-          "nome": "leite condensado",
+          "nome": "Leite Condensado",
           "unidadeDeMedida": "ml",
           "valor": 4.5,
           "marca": "Leiteiro"
@@ -73,14 +105,14 @@
       "materiais": [
         {
           "id": 4,
-          "nome": "feijão preto",
+          "nome": "Feijão Preto",
           "unidadeDeMedida": "kg",
           "valor": 5.6,
           "marca": "GranFazenda"
         },
         {
           "id": 7,
-          "nome": "arroz integral",
+          "nome": "Arroz Integral",
           "unidadeDeMedida": "kg",
           "valor": 4.4,
           "marca": "SaúdeGrão"
@@ -96,22 +128,201 @@
       "materiais": [
         {
           "id": 5,
-          "nome": "azeite de oliva",
+          "nome": "Azeite de Oliva",
           "unidadeDeMedida": "ml",
           "valor": 19.9,
           "marca": "Olivas"
         },
         {
           "id": 6,
-          "nome": "molho de tomate",
+          "nome": "Molho de Tomate",
           "unidadeDeMedida": "g",
           "valor": 2.99,
           "marca": "Tomatito"
         }
       ]
+    },
+    {
+      "id": "",
+      "nome": "Brigadeiro ",
+      "observacoes": "Aniversario",
+      "imagem": "www. brigadeiro.com",
+      "video": "www.brigadeiro.com",
+      "materiaisNecessarios": null,
+      "rendimento": 10,
+      "gastosIndiretos": 30,
+      "gastosDiretos": 100
+    },
+    {
+      "id": "",
+      "nome": "Brigadeiro ",
+      "observacoes": "Aniversario",
+      "imagem": "www. brigadeiro.com",
+      "video": "www.brigadeiro.com",
+      "materiaisNecessarios": null,
+      "rendimento": 10,
+      "gastosIndiretos": 30,
+      "gastosDiretos": 100
+    },
+    {
+      "id": "",
+      "nome": "",
+      "observacoes": "",
+      "imagem": "",
+      "video": "",
+      "materiaisNecessarios": null,
+      "rendimento": 2,
+      "gastosIndiretos": 10,
+      "gastosDiretos": 100
+    },
+    {
+      "id": "",
+      "nome": "Brownie",
+      "observacoes": "",
+      "imagem": "@teste",
+      "video": "@teste",
+      "rendimento": 16,
+      "gastosIndiretos": 50,
+      "gastosDiretos": 150
+    },
+    {
+      "id": "",
+      "nome": "bananada",
+      "observacoes": "",
+      "imagem": "@teste",
+      "video": "@teste",
+      "rendimento": 0,
+      "gastosIndiretos": 0,
+      "gastosDiretos": 0
+    },
+    {
+      "id": "",
+      "nome": "Brownie",
+      "observacoes": "teste 4",
+      "imagem": "@teste",
+      "video": "@teste",
+      "rendimento": 0,
+      "gastosIndiretos": 0,
+      "gastosDiretos": 0
+    },
+    {
+      "id": "",
+      "nome": "macarronada",
+      "observacoes": "obs teste ",
+      "imagem": "123",
+      "video": "321",
+      "rendimento": 3,
+      "materiais": null,
+      "gastosIndiretos": 30,
+      "gastosDiretos": 100
+    },
+    {
+      "id": "",
+      "nome": "",
+      "observacoes": "obs teste 6",
+      "imagem": "",
+      "video": "receita teste 6",
+      "rendimento": 0,
+      "materiais": [
+        {
+          "id": "c96a",
+          "nome": "Açúcar Mascavo",
+          "marca": "União Orgânico",
+          "unidadeDeMedida": "g",
+          "quantidadeEmbalagem": 500,
+          "valor": 6.99,
+          "selecionado": true,
+          "quantidade": 1000,
+          "custo": 13.98
+        }
+      ],
+      "gastosIndiretos": 0,
+      "gastosDiretos": 0
+    },
+    {
+      "id": "",
+      "nome": "receita teste 7 ",
+      "observacoes": "",
+      "imagem": "",
+      "video": "",
+      "rendimento": 0,
+      "materiais": [
+        {
+          "nome": "Farinha de Trigo",
+          "marca": "Dona Farinha",
+          "unidadeDeMedida": "kg",
+          "quantidadeEmbalagem": 1000,
+          "valor": 3.5,
+          "id": 1,
+          "selecionado": true,
+          "quantidade": 50,
+          "custo": 0.18
+        }
+      ],
+      "gastosIndiretos": 0,
+      "gastosDiretos": 0
     }
   ],
-  "lista-de-compras": {
-    "name": "typicode"
-  }
+  "lista-de-compras": [
+    {
+      "id": "123456789",
+      "nomeLista": "Compras de fevereiro",
+      "itens": [
+        {
+          "id": "item1",
+          "nomeItem": "Arroz",
+          "quantidade": 2,
+          "marca": "Tio João",
+          "valor": 5.99,
+          "categoria": "Grãos"
+        },
+        {
+          "id": "item2",
+          "nomeItem": "Feijão",
+          "quantidade": 1,
+          "marca": "Camil",
+          "valor": 4.5,
+          "categoria": "Grãos"
+        },
+        {
+          "id": "item3",
+          "nomeItem": "Sabão em pó",
+          "quantidade": 1,
+          "marca": "Omo",
+          "valor": 10,
+          "categoria": "Limpeza"
+        }
+      ]
+    },
+    {
+      "id": "",
+      "nomeLista": "lista teste ",
+      "itens": [
+        {
+          "nomeItem": "sabonete",
+          "marca": "lux",
+          "quantidade": "5",
+          "categoria": "Produtos de higiene"
+        },
+        {
+          "nomeItem": "amaciante",
+          "marca": "downy",
+          "quantidade": "1",
+          "categoria": "Produtos de limpeza"
+        }
+      ]
+    },
+    {
+      "id": "",
+      "nomeLista": "mercado 14/02",
+      "itens": [
+        {
+          "nomeItem": "Sacolas Plasticas",
+          "marca": "",
+          "quantidade": "1",
+          "categoria": ""
+        }
+      ]
+    }
+  ]
 }

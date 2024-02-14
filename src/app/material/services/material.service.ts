@@ -9,15 +9,6 @@ import { Material } from '../models/material.model';
 })
 export class MaterialService {
 
-  public listaSelecionados?: {
-    nome:string;
-    id:string;
-    quantidade:number;
-    unidadeMedida:string;
-    custo:number;
-    valor:number
-  }[]
-
   constructor(private httpClient: HttpClient) {
 
   }

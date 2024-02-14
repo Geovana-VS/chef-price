@@ -23,12 +23,12 @@ export class ListaMateriaisComponent implements OnInit{
 
   ngOnInit(): void {
      this.listar();
-     this.formulario = this.formbilder.group({
-      nome: [""],
-      marca: [""],
-      unidadeDeMedida: [""],
-      valor:0,
-    })
+    //  this.formulario = this.formbilder.group({
+    //   nome: [""],
+    //   marca: [""],
+    //   unidadeDeMedida: [""],
+    //   valor:0,
+    // })
   }
 
   public listar(): void {
