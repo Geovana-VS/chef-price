@@ -1,43 +1,25 @@
 import { Material } from './../../models/material.model';
-import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { MaterialService } from '../../services/material.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-lista-materiais',
   templateUrl: './lista-materiais.component.html',
   styleUrls: ['./lista-materiais.component.css']
 })
-export class ListaMateriaisComponent implements OnInit{
-  materiais: Material[] = [];
+export class ListaMateriaisComponent implements OnInit {
+  public materiais: Material[] = [];
 
-  formulario!:FormGroup;
-
-
-  constructor( private formbilder: FormBuilder,
-              private service:MaterialService,
-               private router:Router){}
-
-
+  constructor(private service: MaterialService) { }
 
   ngOnInit(): void {
-     this.listar();
-    //  this.formulario = this.formbilder.group({
-    //   nome: [""],
-    //   marca: [""],
-    //   unidadeDeMedida: [""],
-    //   valor:0,
-    // })
+    this.listar();
   }
 
   public listar(): void {
-
-    this.service.listarMateriais().subscribe((materiais)=>{
+    this.service.listarMateriais().subscribe((materiais) => {
       this.materiais = materiais;
-
     });
   }
-
 
 }

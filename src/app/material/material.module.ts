@@ -6,13 +6,15 @@ import { CriarMaterialComponent } from './components/criar-material/criar-materi
 import { ListaMateriaisComponent } from './components/lista-materiais/lista-materiais.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialComponent } from './components/material/material.component';
+import { EditarMaterialComponent } from './components/editar-material/editar-material.component';
 
 
 @NgModule({
   declarations: [
     CriarMaterialComponent,
     ListaMateriaisComponent,
-    MaterialComponent
+    MaterialComponent,
+    EditarMaterialComponent
   ],
   imports: [
     CommonModule,

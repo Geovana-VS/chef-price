@@ -1,38 +1,34 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of, tap } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Material } from '../models/material.model';
-
 
 @Injectable({
   providedIn: 'root'
 })
 export class MaterialService {
 
-  constructor(private httpClient: HttpClient) {
+  private readonly BACKEND_URL = "http://localhost:3000/materiais";
 
-  }
+  constructor(private httpClient: HttpClient) { }
 
   public listarMateriais(): Observable<Material[]> {
-     return this.httpClient.get<Material[]>("http://localhost:3000/materiais");
+    return this.httpClient.get<Material[]>(this.BACKEND_URL);
+  }
 
+  public listarMaterialPorId(id: string): Observable<Material> {
+    return this.httpClient.get<Material>(`${this.BACKEND_URL}/${id}`);
   }
 
   public criarMateriais(material: Material): Observable<Material> {
-     return this.httpClient.post<Material>("http://localhost:3000/materiais", material);
-
+    return this.httpClient.post<Material>(this.BACKEND_URL + "/materiais", material);
   }
 
-  public excluirMateriais(id: string): Observable<Material[]> {
-    return this.httpClient.delete<Material[]>(`http://localhost:3000/materiais/${id}`);
-
+  public excluirMateriais(id: string): Observable<void> {
+    return this.httpClient.delete<void>(`${this.BACKEND_URL}/${id}`);
   }
 
-  public editarMateriais(material: Material): Observable<Material[]> {
-    return this.httpClient.put<Material[]>(`http://localhost:3000/materiais/${material.id}` , material);
-
-
+  public editarMateriais(material: Material): Observable<Material> {
+    return this.httpClient.put<Material>(`${this.BACKEND_URL}/${material.id}`, material);
   }
-
-
 }
