@@ -1,6 +1,5 @@
 import { Receita } from './../../models/receita.model';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
 import { ReceitaService } from '../../services/receita.service';
 
 @Component({
@@ -9,8 +8,7 @@ import { ReceitaService } from '../../services/receita.service';
   styleUrls: ['./lista-receitas.component.css']
 })
 export class ListaReceitasComponent implements OnInit {
-
-  listaDeReceitas: Receita[] = [];
+  public listaDeReceitas: Receita[] = [];
 
   constructor(private service: ReceitaService) { }
 
@@ -21,7 +19,6 @@ export class ListaReceitasComponent implements OnInit {
   public listarReceitas(): void {
     this.service.listarReceitas().subscribe(receita =>
       this.listaDeReceitas = receita)
-
   }
 
 }

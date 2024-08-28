@@ -1,30 +1,22 @@
 <section>
-  <h2>{{ receita?.nome }}</h2>
-  <img src="{{ receita?.imagem }}" alt="Imagem da Receita">
 
-  <div>
-    <h6>Lista de materiais</h6>
-    <ul>
-      <li *ngFor="let material of receita?.materiais">
-        <p>{{ material.nome }}</p>
-        <p>Quantidade: {{ material.quantidade }}{{ material.unidadeDeMedida }}</p>
-        <p>Custo: {{ material.custo }}</p>
-      </li>
-    </ul>
+  <div class="card" (click)="cardClicked(receita?.id)">
+
+    <div class="card-body">
+      <h5 class="card-title">{{receita?.nome}}</h5>
+    </div>
+
+    <div>
+      <img [src]="receita?.imagem" alt="Imagem da receita ">
+    </div>
+
+
+
   </div>
 
-  <!-- <h3>Lucro em %</h3>
-      <p>Rendimento: {{ receita?.rendimento }}</p>
-      <p>Custo total da receita: R${{ receita?.custoDaReceita }}</p>
+  <div>
+    <button (click)="excluirReceita(receita?.id)"> Excluir</button>
+  </div>
 
-      <p>Porcentagem sobre custos indiretos: {{ receita?.lucroGastosIndiretos }}%</p>
-      <p>Lucro esperado: {{ receita?.lucroGastosDiretos }}%</p>
 
-      <button type="submit">Calcular</button> -->
-
-  <label for="video">URL do Vídeo:</label>
-  <p>{{ receita?.video }}</p>
-
-  <label for="observacoes">Observações:</label>
-  <p>{{ receita?.observacoes }}</p>
 </section>

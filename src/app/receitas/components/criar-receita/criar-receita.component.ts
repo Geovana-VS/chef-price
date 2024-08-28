@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup  } from '@angular/forms';
+import { FormularioDeItemListaComponent } from './../../../lista-de-compras/components/formulario-de-item-lista/formulario-de-item-lista.component';
+import { Component, ElementRef, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReceitaService } from '../../services/receita.service';
 import { Router } from '@angular/router';
 import { Material } from 'src/app/material/models/material.model';
@@ -11,48 +12,44 @@ import { Material } from 'src/app/material/models/material.model';
   styleUrls: ['./criar-receita.component.css']
 })
 export class CriarReceitaComponent implements OnInit {
-  formulario: FormGroup;
+  public formulario: FormGroup;
+  imagem: string | ArrayBuffer | null = null;
+  public gastosDireto?: number;
+  public lucroGastosIndiretos?: number;
+  public custoDosMateriais: number = 0;
+  public rendimento?: number;
+  public materiaisNecessarios: Material[] = [];
 
-  gastosDireto?: number;
-  lucroGastosIndiretos?: number ;
-  custoDosMateriais: number =0;
-  rendimento:number=0
-
-  materiaisNecessarios: Material[] = [];
+  public botaoAnalisarCustos: boolean = false;
+  public botaoSalvar: boolean = false;
+  public mensagemDeErro:string = "";
 
 
 
   constructor(
     private formbilder: FormBuilder,
     private serviceReceita: ReceitaService,
-    private route: Router) {
+    private route: Router,
+    private elementRef:ElementRef) {
     this.formulario = this.formbilder.group({
-      id: [""],
-      nome: [""],
-      observacoes: [""],
+      nome: ["", [Validators.required, Validators.maxLength(15)]],
+      observacoes: ["", [Validators.maxLength(130)]],
       imagem: [""],
       video: [""],
-      rendimento: 0,
-      materiais:[],
-      gastosIndiretos: 0,
-      gastosDiretos: 0,
-
-
+      rendimento: [ Validators.required, Validators.pattern('^[1-9]*$')],
+      materiais: [],
+      gastosIndiretos: [[Validators.required,Validators.pattern('^[1-9]*$')]],
+      gastosDiretos: [[Validators.required,Validators.pattern('^[1-9]*$')]],
     });
   }
 
   ngOnInit(): void {
     this.preencherMateriaisSelecionados();
-     this.exibirCadastroReceita();
-
-    console.log(this.materiaisNecessarios)
-
-
+    this.exibirCadastroReceita();
   }
 
   private preencherMateriaisSelecionados() {
     this.calcularCustoDosMateriais();
-
     this.materiaisNecessarios = this.serviceReceita.selecionados || [];
   }
 
@@ -63,23 +60,25 @@ export class CriarReceitaComponent implements OnInit {
       this.serviceReceita.custosDosMateriais = this.custoDosMateriais;
 
     })
+
   }
 
   public adicionarMateriais() {
-    debugger;
-    // this.serviceReceita.selecionados = [];
     this.atualizarInfoService();
     this.route.navigate(['/receita/adicionar-material'])
   }
 
-   public analisarCustos() {
-    debugger;
+  public analisarCustos() {
+    this.botaoAnalisarCustos = true;
+
+
+   if(this.materiaisNecessarios.length > 0){
     this.atualizarInfoService();
     this.route.navigate(['/receita/analise-de-custos'])
+   }
   }
 
-
-  atualizarInfoService() {
+   private atualizarInfoService() {
     this.serviceReceita.informacoesTelaDeCriarReceita = {
       nome: this.formulario.get("nome")?.value,
       imagem: this.formulario.get("imagem")?.value,
@@ -88,13 +87,10 @@ export class CriarReceitaComponent implements OnInit {
       gastosIndiretos: this.formulario.get("gastosIndiretos")?.value,
       rendimento: this.formulario.get("rendimento")?.value,
       observacoes: this.formulario.get("observacoes")?.value,
-
     };
-    console.log(this.serviceReceita.custosDosMateriais,this.serviceReceita.informacoesTelaDeCriarReceita.gastosDiretos,this.serviceReceita.informacoesTelaDeCriarReceita.gastosIndiretos,this.serviceReceita.informacoesTelaDeCriarReceita.rendimento)
-
   }
 
-  exibirCadastroReceita() {
+  private exibirCadastroReceita() {
     this.formulario.get("nome")?.setValue(this.serviceReceita.informacoesTelaDeCriarReceita.nome);
     this.formulario.get("video")?.setValue(this.serviceReceita.informacoesTelaDeCriarReceita.video);
     this.formulario.get("imagem")?.setValue(this.serviceReceita.informacoesTelaDeCriarReceita.imagem)
@@ -102,19 +98,36 @@ export class CriarReceitaComponent implements OnInit {
     this.formulario.get("gastosDiretos")?.setValue(this.serviceReceita.informacoesTelaDeCriarReceita.gastosDiretos);
     this.formulario.get("gastosIndiretos")?.setValue(this.serviceReceita.informacoesTelaDeCriarReceita.gastosIndiretos);
     this.formulario.get("observacoes")?.setValue(this.serviceReceita.informacoesTelaDeCriarReceita.observacoes)
-
   }
 
-
-  criarReceita() {
+   public criarReceita() {
+   if(this.formulario.valid){
+    this.botaoSalvar = true;
     this.serviceReceita.criarReceita(this.formulario.value, this.materiaisNecessarios).subscribe(() => {
       this.serviceReceita.selecionados = this.materiaisNecessarios;
+      console.log(this.formulario.value)
       this.route.navigate(['']);
     })
-
-
+   }else{
+      this.mensagemDeErro = "erro"
+   }
   }
 
+  public mudarParaRendimento(mudarParaRendimento:HTMLInputElement){
+         mudarParaRendimento.focus();
+  }
 
-
+  onFileSelected(event: any) {
+    const file: File = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        this.imagem = e.target.result;
+        this.formulario.get('imagem')?.setValue(this.imagem);
+      };
+      reader.readAsDataURL(file);
+    }
+  }
 }
+
+

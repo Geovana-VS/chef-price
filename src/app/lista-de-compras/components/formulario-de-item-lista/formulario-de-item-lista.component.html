@@ -7,13 +7,17 @@
     <div>
       <label for="quantidade">Quantidade</label>
       <input type="text" formControlName="quantidade">
+      <div *ngIf="itemDaLista.get('quantidade')?.errors && itemDaLista.get('quantidade')?.touched">
+       A quantidade é obrigatória.
+      </div>
+
     </div>
     <div>
       <label for="marca">Marca</label>
       <input type="text" formControlName="marca">
     </div>
     <div>
-      <label for="categoria">Selecione um item</label>
+      <label for="categoria">Categotia do produto</label>
       <select formControlName="categoria">
         <option *ngFor="let item of categoria" [value]="item.nome">{{ item.nome }}</option>
       </select>

@@ -8,7 +8,6 @@ export class Material {
   valor: number
   marca: string
   selecionado: boolean
-  // TODO - Entender onde é usado
   quantidade: number
   custo: number
   categoria: CategoriaEnum

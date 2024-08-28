@@ -32,23 +32,6 @@ export class AdicionarMateriaisComponent implements OnInit {
     });
   }
 
-  // PRIMEIRA LÓGICA
-  // private preencherMateriaisSelecionados(): void {
-  //   this.receitaService.selecionados?.forEach(material => {
-  //     this.checkarMaterial(material.id);
-  //   });
-  // }
-
-  // private checkarMaterial(materialId: string): void {
-  //   this.listaMateriais.forEach(material => {
-  //     if(materialId === material.id) {
-  //       material.selecionado = true;
-  //     }
-  //   });
-  // }
-  // FIM DA PRIMEIRA LÓGICA
-
-  // LÓGICA ALTERNATIVA
   private preencherMateriaisSelecionadosDaTela(): void {
     this.listaMateriais.forEach(materialDaTela => {
       const materialComIdIgualAoDaTela = this.receitaService.selecionados?.find(materialSelecionado => materialSelecionado.id === materialDaTela.id);
@@ -59,9 +42,8 @@ export class AdicionarMateriaisComponent implements OnInit {
     });
   }
 
-  public aoClicarNoAdicionar() {
+  public adicionarMaterial() {
     this.receitaService.selecionados = [];
-
     this.listaMateriais.forEach(material => {
       if (material.selecionado) {
         this.receitaService.selecionados?.push(material);

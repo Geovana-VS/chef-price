@@ -21,7 +21,7 @@ export class MaterialService {
   }
 
   public criarMateriais(material: Material): Observable<Material> {
-    return this.httpClient.post<Material>(this.BACKEND_URL + "/materiais", material);
+    return this.httpClient.post<Material>(`${this.BACKEND_URL}`, material);
   }
 
   public excluirMateriais(id: string): Observable<void> {

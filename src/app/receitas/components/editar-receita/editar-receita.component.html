@@ -1,1 +1,93 @@
-<p>editar-receita works!</p>
+<section>
+  <head>
+    <title>Formulário de Receitas</title>
+  </head>
+  <h2>Nova Receita</h2>
+
+
+<form [formGroup]="formulario">
+
+  <div>
+    <label for="nome">Nome:</label><br>
+    <input type="text" id="nome" formControlName="nome"><br>
+    <div *ngIf="formulario.get('nome')?.errors && formulario.get('nome')?.touched">
+      <span>De um nome para essa receita</span>
+    </div>
+  </div>
+
+  <div>
+    <label for="imagem">URL da Imagem:</label><br>
+    <input type="text" id="imagem" formControlName="imagem"><br>
+  </div>
+
+  <div>
+    <label for="video">URL do Vídeo:</label><br>
+    <input type="text" id="video" formControlName="video"><br><br>
+  </div>
+
+  <div>
+    <button (click)="adicionarMateriais()" (keydown.enter)="mudarParaRendimento(rendimento)" type="button">Adicionar Material</button>
+  </div>
+
+  <div>
+    <div *ngFor="let material of materiaisNecessarios">
+      <ul>
+        <li>
+          <h6>{{ material.nome }}</h6>
+          <p>Quantidade: {{ material.quantidade }} {{ material.unidadeDeMedida }}</p>
+          <p>Custo: {{ material.custo }}</p>
+        </li>
+      </ul>
+    </div>
+    <div *ngIf="materiaisNecessarios.length === 0 && botaoAnalisarCustos">
+      <span>Adicione pelo menos 1 material</span>
+    </div>
+  </div>
+
+  <div>
+      <h3>Lucro em %</h3>
+  </div>
+  <div>
+    <label for="rendimento">Qual o rendimento dessa receita?</label>
+    <input type="number" #rendimento formControlName="rendimento" id="rendimento">
+    <div *ngIf="formulario.get('rendimento')?.errors && botaoAnalisarCustos">
+      <span>*Campo necessário para a analise de custos</span>
+   </div>
+  </div>
+
+  <div>
+    <p>Custo total da receita R${{ custoDosMateriais }}</p>
+  </div>
+
+  <div>
+    <label for="gastosIndiretos">Porcentagem sobre custos indiretos (mão de obra, luz, água)</label>
+    <input type="number" formControlName="gastosIndiretos" id="gastosIndiretos" placeholder="%"><br>
+    <div *ngIf="formulario.get('gastosIndiretos')?.errors && botaoAnalisarCustos">
+       <span>*Campo necessário para a analise de custos</span>
+    </div>
+  </div>
+
+  <div>
+    <label for="gastosDiretos">Lucro esperado</label>
+    <input type="number" formControlName="gastosDiretos" id="gastosDiretos" placeholder="%"><br>
+    <div *ngIf="formulario.get('gastosDiretos')?.errors && botaoAnalisarCustos">
+      <span>*Campo necessário para a analise de custos</span>
+   </div>
+  </div>
+
+  <div>
+    <button type="button" (click)="analisarCustos()" value="Calcular">Calcular</button>
+  </div>
+
+  <div>
+    <label for="observacoes">Observações:</label><br>
+    <textarea id="observacoes" formControlName="observacoes" rows="4" cols="50"></textarea><br>
+  </div>
+
+  <div>
+    <button type="submit" (click)="editarReceita()">Slavar alteraçoes</button>
+  </div>
+
+</form>
+</section>
+

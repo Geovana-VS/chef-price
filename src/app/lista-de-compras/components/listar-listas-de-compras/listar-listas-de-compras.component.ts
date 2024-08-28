@@ -10,29 +10,34 @@ import { Router } from '@angular/router';
 })
 export class ListarListasDeComprasComponent implements OnInit {
 
-   listaDeComprasPronta:ListaDeCompras[]=[]
+  listaDeComprasPronta: ListaDeCompras[] = [];
 
-  constructor(private listaDeReceitasService:ListaDeComprasService,
-               private router:Router
-
-    ){}
+  constructor(private listaDeComprasService: ListaDeComprasService,
+    private router: Router) { }
 
 
   ngOnInit(): void {
     this.listarListasDeCompras()
   }
 
-  private listarListasDeCompras(){
-    const chamada = this.listaDeReceitasService.listarListasDeCompras()
-    chamada.subscribe(lista => {
-     this.listaDeComprasPronta = lista
+  public listarListasDeCompras() {
+    this.listaDeComprasService.listarListasDeCompras().subscribe(lista => {
+      this.listaDeComprasPronta = lista
     })
   }
 
-  public selecionarLista(lista:ListaDeCompras): void {
-     this.listaDeReceitasService.comprarLista=lista;
-     console.log(lista);
-     this.router.navigate(['/compras/comprar-lista']);
+  public selecionarLista(lista: ListaDeCompras): void {
+
+    this.listaDeComprasService.comprarLista = lista;
+    console.log(lista);
+    this.router.navigate(['/compras/comprar-lista']);
 
   }
+
+  public ExcluirLista(id: string) {
+    this.listaDeComprasService.excluirLista(id).subscribe(() => {
+      this.listarListasDeCompras();
+    })
+  }
+
 }

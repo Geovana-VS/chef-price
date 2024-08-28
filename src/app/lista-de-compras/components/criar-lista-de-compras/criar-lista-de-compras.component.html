@@ -1,21 +1,24 @@
 <section>
   <form [formGroup]="formularioCompras">
     <label for="nomeLista">Nome da lista</label>
-    <input type="text" formControlName="nomeLista" >
-     <app-formulario-de-item-lista [listaDeItens]="listaDeItens"></app-formulario-de-item-lista>
+    <input type="text" formControlName="nomeLista">
+    <div *ngIf="formularioCompras.get('nomeLista')?.errors && formularioCompras.get('nomeLista')?.touched">
+      De um nome para esta lista.
+    </div>
 
-     <div *ngIf="listaDeItens.length > 0">
+    <app-formulario-de-item-lista [listaDeItens]="listaDeItensCriados"></app-formulario-de-item-lista>
+
+    <div *ngIf="listaDeItensCriados.length">
       <h2>{{formularioCompras.get('nomeLista')?.value}}</h2>
       <ul>
-        <li *ngFor="let item of listaDeItens; let i = index">
+        <li *ngFor="let item of listaDeItensCriados; let i = index">
           {{ item.nomeItem }} - {{ item.quantidade }} - {{ item.marca }} -{{item.categoria}}
           <button (click)="removerItem(i)">Remover item</button>
-
         </li>
       </ul>
     </div>
 
+
     <button (click)="criarLista()">Salvar lista</button>
   </form>
 </section>
-

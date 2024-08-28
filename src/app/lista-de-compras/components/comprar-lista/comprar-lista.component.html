@@ -1,10 +1,33 @@
 <section>
-  <h2>Itens da Lista Selecionada</h2>
-  <div *ngFor="let item of listasDeCompras">
-    <p>Nome do Item: {{ item.nomeItem }}</p>
-    <p>Quantidade: {{ item.quantidade }}</p>
-    <p>Marca: {{ item.marca }}</p>
-    <p>Valor: {{ item.valor }}</p>
-    <p>Categoria: {{ item.categoria }}</p>
-  </div>
+  <h1>{{nomeDaLista}}</h1>
+  <table>
+    <thead>
+      <th>categoria</th>
+      <th>nome</th>
+      <th>marca</th>
+      <th>quantidade</th>
+      <th>valor</th>
+      <th>total</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dado of listasDeCompras ; let i = index" >
+        <td>{{ dado.categoria }}</td>
+        <td>{{ dado.nomeItem }}</td>
+        <td>{{ dado.marca }}</td>
+        <label for="quantidade"></label>
+        <input type="number" id="quantidade" [(ngModel)]="dado.quantidade" name="quantidade">
+        <td>
+          <label for="valor"></label>
+          <input type="number" id="valorUnitario" [(ngModel)]="dado.valor" name="preco">
+        </td>
+        <td>
+          {{ listaDeComprasservice.calcularPrecoTotalItem(dado.quantidade,dado.valor) }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4>Total a pagar: R${{ listaDeComprasservice.calcularTotal(listasDeCompras) }} </h4>
+
+  <button (click)="finalizarCompras()">Finalizar</button>
 </section>

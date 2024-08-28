@@ -1,1 +1,16 @@
-<p>lista-de-compras-por-receita works!</p>
+<section>
+  <h1>Lista de receitas</h1>
+
+  <div *ngFor=" let receitaDaLista of listaDeReceitas">
+    <ul>
+      <li>
+         <img src="{{receitaDaLista.imagem}}" alt="imagem da receita">
+         <p>{{receitaDaLista.nome}}</p>
+         <button (click)="adicionarItensDaReceita(receitaDaLista.id)">Comprar Ingredientes</button>
+      </li>
+    </ul>
+  </div>
+
+
+</section>
+

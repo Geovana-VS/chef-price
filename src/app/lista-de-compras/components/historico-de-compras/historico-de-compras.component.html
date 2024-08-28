@@ -1,0 +1,13 @@
+<section>
+  <div >
+    <h2>Listas</h2>
+    <p>{{ nomeDalista}} </p>
+    <div *ngFor="let item of listaDeHistoricoDeCompras" >
+
+        <p>{{item.valorTotal}} </p>
+
+         <button (click)="selecionarLista(item)">Detalhes</button>
+    </div>
+
+  </div>
+</section>

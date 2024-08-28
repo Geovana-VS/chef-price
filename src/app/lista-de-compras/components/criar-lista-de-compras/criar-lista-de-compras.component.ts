@@ -1,10 +1,11 @@
-import { Subscriber } from 'rxjs';
+
 import { ItemDaLista } from './../../models/itens-da-lista.model';
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
-import { ListaDeCompras } from '../../models/lista-de-compras.model';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ListaDeComprasService } from '../../services/lista-de-compras.service';
-import { Route, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ReceitaService } from 'src/app/receitas/services/receita.service';
+
 
 @Component({
   selector: 'app-criar-lista-de-compras',
@@ -12,38 +13,55 @@ import { Route, Router } from '@angular/router';
   styleUrls: ['./criar-lista-de-compras.component.css']
 })
 export class CriarListaDeComprasComponent implements OnInit {
-  listaDeItens: ItemDaLista[] = []
+  listaDeItensCriados: ItemDaLista[] = [];
+
   formularioCompras!: FormGroup;
 
-
-
-
-
   constructor(private listadecomprasservice: ListaDeComprasService,
-    private route: Router,
+    private receitaservice: ReceitaService,
+    private router: Router,
+    private route: ActivatedRoute,
     private formbuilder: FormBuilder) {
 
     this.formularioCompras = this.formbuilder.group({
-      id: [""],
-      nomeLista: [""],
+      nomeLista: ["", [Validators.required,Validators.maxLength(30)]],
 
     });
+
+
   }
 
   ngOnInit(): void {
-
+    this.pegarId();
   }
 
+
+
   public criarLista() {
-    this.listadecomprasservice.criarListaDeCompras(this.formularioCompras.value, this.listaDeItens).subscribe(() => {
-      this.route.navigate(['/listar-lista-de-compras']);
+
+    this.listadecomprasservice.criarListaDeCompras(this.formularioCompras.value, this.listaDeItensCriados).subscribe(() => {
+      this.router.navigate(['/compras']);
     })
 
   }
 
-  public removerItem(index:number){
-     this.listaDeItens.splice(index,1)
+  public removerItem(index: number) {
+    this.listaDeItensCriados.splice(index, 1)
+  }
 
+  private pegarId(): void {
+    this.route.params.subscribe(params => {
+      let id = params['id'];
+      console.log("id recebido", id)
+
+      this.carregarLista(id);
+    });
+  }
+
+  private carregarLista(id: string) {
+    this.receitaservice.listarReceitaPorId(id).subscribe(receita => {
+      this.listaDeItensCriados = this.listadecomprasservice.converterListas(receita.materiais);
+    });
   }
 
 

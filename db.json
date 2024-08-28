@@ -1,328 +1,204 @@
 {
   "materiais": [
     {
-      "nome": "Farinha de Trigo",
-      "marca": "Dona Farinha",
-      "unidadeDeMedida": "kg",
-      "quantidadeEmbalagem": 1000,
-      "valor": 3.5,
-      "id": 1
-    },
-    {
-      "nome": "Chocolate em Pó",
-      "marca": "Chocolícia",
+      "id": "baaa",
+      "nome": "Chocolate Blend",
+      "marca": "sicao",
       "unidadeDeMedida": "g",
-      "quantidadeEmbalagem": 200,
-      "valor": 8,
-      "id": 2
-    },
-    {
-      "id": "c96a",
-      "nome": "Açúcar Mascavo",
-      "marca": "União Orgânico",
-      "unidadeDeMedida": "g",
-      "quantidadeEmbalagem": 500,
-      "valor": 6.99
-    },
-    {
-      "id": "0110",
-      "nome": "Leite Condensado",
-      "marca": "Leitinho da Serra",
-      "unidadeDeMedida": "ml",
-      "quantidadeEmbalagem": 400,
-      "valor": 2.5
-    },
-    {
-      "id": "248b",
-      "nome": "Margarina",
-      "marca": "MargarDelícia",
-      "unidadeDeMedida": "g",
-      "quantidadeEmbalagem": 500,
-      "valor": 4.8
-    },
-    {
-      "id": "154a",
-      "nome": "Macarrão",
-      "marca": "Doria",
-      "unidadeDeMedida": "g",
-      "quantidadeEmbalagem": 500,
-      "valor": 4.9
-    },
-    {
-      "id": "ecf4",
-      "nome": "Bolacha Maisena",
-      "marca": "Mabel",
-      "unidadeDeMedida": "g",
-      "quantidadeEmbalagem": 395,
-      "valor": 6
-    },
-    {
-      "id": "9fd7",
-      "nome": "Cenoura",
-      "marca": "natureza",
-      "unidadeDeMedida": "g",
-      "quantidadeEmbalagem": 1000,
-      "valor": 8
+      "quantidadeEmbalagem": 2256,
+      "valor": 59.99
     }
   ],
   "receitas": [
     {
-      "id": "receita01",
-      "nome": "Bolo de Chocolate",
-      "imagem": "url_da_imagem_bolo_de_chocolate.jpg",
-      "observacoes": "Ideal para festas e reuniões familiares.",
-      "video": "url_do_video_bolo_de_chocolate.mp4",
-      "materiais": [
-        {
-          "id": 3,
-          "nome": "Farinha de Trigo",
-          "unidadeDeMedida": "kg",
-          "valor": 3.2,
-          "marca": "Padeiro"
-        },
-        {
-          "id": 8,
-          "nome": "Chocolate em Pó",
-          "unidadeDeMedida": "g",
-          "valor": 7.8,
-          "marca": "CacauShow"
-        },
-        {
-          "id": 2,
-          "nome": "Leite Condensado",
-          "unidadeDeMedida": "ml",
-          "valor": 4.5,
-          "marca": "Leiteiro"
-        }
-      ]
-    },
-    {
-      "id": "receita02",
-      "nome": "Feijoada Completa",
-      "imagem": "url_da_imagem_feijoada_completa.jpg",
-      "observacoes": "Um prato tradicional brasileiro, perfeito para o fim de semana.",
-      "video": "url_do_video_feijoada_completa.mp4",
-      "materiais": [
-        {
-          "id": 4,
-          "nome": "Feijão Preto",
-          "unidadeDeMedida": "kg",
-          "valor": 5.6,
-          "marca": "GranFazenda"
-        },
-        {
-          "id": 7,
-          "nome": "Arroz Integral",
-          "unidadeDeMedida": "kg",
-          "valor": 4.4,
-          "marca": "SaúdeGrão"
-        }
-      ]
-    },
-    {
-      "id": "receita03",
-      "nome": "Salada Mediterrânea",
-      "imagem": "url_da_imagem_salada_mediterranea.jpg",
-      "observacoes": "Leve e nutritiva, ideal para um almoço de verão.",
-      "video": "url_do_video_salada_mediterranea.mp4",
-      "materiais": [
-        {
-          "id": 5,
-          "nome": "Azeite de Oliva",
-          "unidadeDeMedida": "ml",
-          "valor": 19.9,
-          "marca": "Olivas"
-        },
-        {
-          "id": 6,
-          "nome": "Molho de Tomate",
-          "unidadeDeMedida": "g",
-          "valor": 2.99,
-          "marca": "Tomatito"
-        }
-      ]
-    },
-    {
-      "id": "",
-      "nome": "Brigadeiro ",
-      "observacoes": "Aniversario",
-      "imagem": "www. brigadeiro.com",
-      "video": "www.brigadeiro.com",
-      "materiaisNecessarios": null,
-      "rendimento": 10,
-      "gastosIndiretos": 30,
-      "gastosDiretos": 100
-    },
-    {
-      "id": "",
-      "nome": "Brigadeiro ",
-      "observacoes": "Aniversario",
-      "imagem": "www. brigadeiro.com",
-      "video": "www.brigadeiro.com",
-      "materiaisNecessarios": null,
-      "rendimento": 10,
-      "gastosIndiretos": 30,
-      "gastosDiretos": 100
-    },
-    {
-      "id": "",
-      "nome": "",
+      "id": "cdaf",
+      "nome": "Macarronada",
       "observacoes": "",
-      "imagem": "",
+      "imagem": "data:image/jpeg;base64,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",
       "video": "",
-      "materiaisNecessarios": null,
-      "rendimento": 2,
-      "gastosIndiretos": 10,
-      "gastosDiretos": 100
-    },
-    {
-      "id": "",
-      "nome": "Brownie",
-      "observacoes": "",
-      "imagem": "@teste",
-      "video": "@teste",
-      "rendimento": 16,
-      "gastosIndiretos": 50,
-      "gastosDiretos": 150
-    },
-    {
-      "id": "",
-      "nome": "bananada",
-      "observacoes": "",
-      "imagem": "@teste",
-      "video": "@teste",
-      "rendimento": 0,
-      "gastosIndiretos": 0,
-      "gastosDiretos": 0
-    },
-    {
-      "id": "",
-      "nome": "Brownie",
-      "observacoes": "teste 4",
-      "imagem": "@teste",
-      "video": "@teste",
-      "rendimento": 0,
-      "gastosIndiretos": 0,
-      "gastosDiretos": 0
-    },
-    {
-      "id": "",
-      "nome": "macarronada",
-      "observacoes": "obs teste ",
-      "imagem": "123",
-      "video": "321",
-      "rendimento": 3,
-      "materiais": null,
-      "gastosIndiretos": 30,
-      "gastosDiretos": 100
-    },
-    {
-      "id": "",
-      "nome": "",
-      "observacoes": "obs teste 6",
-      "imagem": "",
-      "video": "receita teste 6",
-      "rendimento": 0,
+      "rendimento": 8,
       "materiais": [
         {
-          "id": "c96a",
-          "nome": "Açúcar Mascavo",
-          "marca": "União Orgânico",
+          "id": "baaa",
+          "nome": "Chocolate Blend",
+          "marca": "sicao",
           "unidadeDeMedida": "g",
-          "quantidadeEmbalagem": 500,
-          "valor": 6.99,
+          "quantidadeEmbalagem": 2256,
+          "valor": 59.99,
           "selecionado": true,
-          "quantidade": 1000,
-          "custo": 13.98
+          "quantidade": 100,
+          "custo": 2.66
         }
       ],
-      "gastosIndiretos": 0,
-      "gastosDiretos": 0
-    },
-    {
-      "id": "",
-      "nome": "receita teste 7 ",
-      "observacoes": "",
-      "imagem": "",
-      "video": "",
-      "rendimento": 0,
-      "materiais": [
-        {
-          "nome": "Farinha de Trigo",
-          "marca": "Dona Farinha",
-          "unidadeDeMedida": "kg",
-          "quantidadeEmbalagem": 1000,
-          "valor": 3.5,
-          "id": 1,
-          "selecionado": true,
-          "quantidade": 50,
-          "custo": 0.18
-        }
-      ],
-      "gastosIndiretos": 0,
-      "gastosDiretos": 0
+      "gastosIndiretos": 100,
+      "gastosDiretos": 100
     }
   ],
   "lista-de-compras": [
     {
-      "id": "123456789",
-      "nomeLista": "Compras de fevereiro",
+      "id": "e6d5",
+      "nomeLista": "Mercado março",
       "itens": [
         {
-          "id": "item1",
-          "nomeItem": "Arroz",
-          "quantidade": 2,
-          "marca": "Tio João",
-          "valor": 5.99,
-          "categoria": "Grãos"
-        },
-        {
-          "id": "item2",
-          "nomeItem": "Feijão",
-          "quantidade": 1,
-          "marca": "Camil",
-          "valor": 4.5,
-          "categoria": "Grãos"
-        },
-        {
-          "id": "item3",
-          "nomeItem": "Sabão em pó",
-          "quantidade": 1,
-          "marca": "Omo",
-          "valor": 10,
-          "categoria": "Limpeza"
+          "nomeItem": "feijao",
+          "marca": "kicaldo",
+          "quantidade": "3",
+          "categoria": "Alimentos"
         }
       ]
     },
     {
-      "id": "",
-      "nomeLista": "lista teste ",
+      "id": "5aff",
+      "nomeLista": "lista teste 3",
       "itens": [
         {
-          "nomeItem": "sabonete",
-          "marca": "lux",
-          "quantidade": "5",
-          "categoria": "Produtos de higiene"
+          "id": "64f0",
+          "nomeItem": "leite condensado",
+          "quantidade": 0,
+          "marca": "moça",
+          "valor": 0,
+          "precoItemCalculado": 0,
+          "calculoTotal": 7
         },
         {
-          "nomeItem": "amaciante",
-          "marca": "downy",
-          "quantidade": "1",
-          "categoria": "Produtos de limpeza"
+          "id": "b8cd",
+          "nomeItem": "creme de leite",
+          "quantidade": 0,
+          "marca": "itelac",
+          "valor": 0,
+          "precoItemCalculado": 0,
+          "calculoTotal": 3
         }
       ]
     },
     {
-      "id": "",
-      "nomeLista": "mercado 14/02",
+      "id": "1bdf",
+      "nomeLista": "lasanha ",
       "itens": [
         {
-          "nomeItem": "Sacolas Plasticas",
-          "marca": "",
-          "quantidade": "1",
-          "categoria": ""
+          "id": "64f0",
+          "nomeItem": "leite condensado",
+          "quantidade": 0,
+          "marca": "moça",
+          "valor": 0,
+          "precoItemCalculado": 0,
+          "calculoTotal": 7
+        },
+        {
+          "nomeItem": "molho de tomate",
+          "marca": "cepera",
+          "quantidade": "2",
+          "categoria": "Alimentos"
         }
       ]
+    },
+    {
+      "id": "065b",
+      "nomeLista": "lasanha3",
+      "itens": [
+        {
+          "id": "64f0",
+          "nomeItem": "leite condensado",
+          "quantidade": 0,
+          "marca": "moça",
+          "valor": 0,
+          "precoItemCalculado": 0,
+          "calculoTotal": 7
+        },
+        {
+          "id": "b8cd",
+          "nomeItem": "creme de leite",
+          "quantidade": 0,
+          "marca": "itelac",
+          "valor": 0,
+          "precoItemCalculado": 0,
+          "calculoTotal": 3
+        }
+      ]
+    },
+    {
+      "id": "c062",
+      "nomeLista": "teste 6",
+      "itens": [
+        {
+          "id": "64f0",
+          "nomeItem": "leite condensado",
+          "quantidade": 0,
+          "marca": "moça",
+          "valor": 0,
+          "precoItemCalculado": 0,
+          "calculoTotal": 7
+        },
+        {
+          "id": "b8cd",
+          "nomeItem": "creme de leite",
+          "quantidade": 0,
+          "marca": "itelac",
+          "valor": 0,
+          "precoItemCalculado": 0,
+          "calculoTotal": 3
+        },
+        {
+          "nomeItem": "azeitonas",
+          "marca": "qualquer",
+          "quantidade": "2",
+          "categoria": "Alimentos"
+        }
+      ]
+    },
+    {
+      "id": "43a7",
+      "nomeLista": "TESTANDO HISTORICO",
+      "itens": [
+        {
+          "id": "64f0",
+          "nomeItem": "leite condensado",
+          "quantidade": 0,
+          "marca": "moça",
+          "valor": 0,
+          "precoItemCalculado": 0,
+          "calculoTotal": 7
+        },
+        {
+          "id": "b8cd",
+          "nomeItem": "creme de leite",
+          "quantidade": 0,
+          "marca": "itelac",
+          "valor": 0,
+          "precoItemCalculado": 0,
+          "calculoTotal": 3
+        }
+      ]
+    }
+  ],
+  "historico-de-compras": [
+    {
+      "id": "b46d",
+      "nomeDaLista": "Mercado março",
+      "itens": [
+        {
+          "nomeItem": "feijao",
+          "marca": "kicaldo",
+          "quantidade": "3",
+          "categoria": "Alimentos",
+          "valor": 7.65
+        }
+      ],
+      "valorTotal": 22.95
+    },
+    {
+      "id": "25dc",
+      "nomeDaLista": "Mercado março",
+      "itens": [
+        {
+          "nomeItem": "feijao",
+          "marca": "kicaldo",
+          "quantidade": "3",
+          "categoria": "Alimentos",
+          "valor": 8.5
+        }
+      ],
+      "valorTotal": 25.5
     }
   ]
 }

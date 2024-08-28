@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MaterialService } from '../../services/material.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { UnidadeDeMedida } from '../../enums/unidadeDeMedida.enum';
 
 @Component({
   selector: 'app-editar-material',
@@ -11,6 +12,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class EditarMaterialComponent implements OnInit {
   public formulario: FormGroup;
 
+  unidadesDeMedida = [
+    { nome: 'Unidade(u)', valor: UnidadeDeMedida.Unidade },
+    { nome: 'Mililitros(ml)', valor: UnidadeDeMedida.Mililitros },
+    { nome: 'Litros(l)', valor: UnidadeDeMedida.Litros },
+    { nome: 'Gramas(g)', valor: UnidadeDeMedida.Gramas },
+    { nome: 'Quilogramas(kg)', valor: UnidadeDeMedida.Quilogramas }
+ ];
+
   constructor(private materialservice: MaterialService,
     private formbuilder: FormBuilder,
     private router: Router,
@@ -19,10 +28,10 @@ export class EditarMaterialComponent implements OnInit {
     // TODO - Inserir validações
     this.formulario = this.formbuilder.group({
       id: [''],
-      nome: [''],
+      nome: ['',[Validators.maxLength(15)]],
       marca: [''],
-      unidadeDeMedida: [''],
-      quantidadeEmbalagem: [0],
+      unidadeDeMedida: [UnidadeDeMedida.Unidade],
+      quantidadeEmbalagem: [0,[Validators.pattern('^(o-9)*')]],
       valor: [0]
     });
   }

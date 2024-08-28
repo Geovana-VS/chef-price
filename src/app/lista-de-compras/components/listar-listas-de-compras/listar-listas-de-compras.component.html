@@ -1,18 +1,18 @@
 <section>
   <div>
-    <button routerLink="criar-lista-de-compras" type="button">Criar lista</button>
+    <button routerLink="criar-lista-de-compras/a" type="button">Criar lista</button>
   </div>
   <div>
-    <button routerLink="lista-por-receita"  type="button">Lista de ingredientes </button>
+    <button routerLink="lista-por-receita" type="button">Lista de ingredientes </button>
   </div>
-  <div >
+  <div>
+    <button routerLink="historico-de-compras" type="button">Historico de compras</button>
+  </div>
+  <div>
     <h2>Listas</h2>
-    <ul>
-      <li *ngFor="let lista  of listaDeComprasPronta; let i = index" >
-        {{ lista.nomeLista }} <button routerLink="/comprar-lista" (click)="selecionarLista(lista)">Comprar</button>
-      </li>
-    </ul>
-    <section>
+    <div *ngFor="let item of listaDeComprasPronta ">
+         <app-lista-de-compra [listaDeComprasPronta]="item"  (recarregarLista)="listarListasDeCompras()"></app-lista-de-compra>
+    </div>
 
+  </div>
 </section>
-

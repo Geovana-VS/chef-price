@@ -5,11 +5,10 @@
   <div *ngFor=" let receitaDaLista of listaDeReceitas">
     <ul>
       <li>
-        <app-receita [receita]="receitaDaLista"></app-receita>
+      <app-receita (recarregarLista)="listarReceitas()" [receita]="receitaDaLista"></app-receita>
       </li>
     </ul>
-    <button> Excluir</button>
-    <button> Editar</button>
+
   </div>
 
 

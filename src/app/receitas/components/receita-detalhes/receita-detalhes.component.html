@@ -1,0 +1,36 @@
+<section>
+<h2>{{ receita?.nome }}</h2>
+  <div class="div_img">
+    <img [src]="receita?.imagem"  alt="Imagem da Receita">
+  </div>
+
+  <div>
+    <h6>Lista de materiais</h6>
+    <ul>
+      <li *ngFor="let material of receita?.materiais">
+        <p>{{ material.nome }}</p>
+        <p>Quantidade: {{ material.quantidade }}{{ material.unidadeDeMedida }}</p>
+        <p>Custo: {{ material.custo }}</p>
+      </li>
+    </ul>
+  </div>
+
+  <div>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/A0pNkl0OCBA" frameborder="0" allowfullscreen></iframe>
+  </div>
+
+ <div>
+  <label for="video">URL do Vídeo:</label>
+  <p>{{ receita?.video }}</p>
+ </div>
+
+  <div>
+    <label for="observacoes">Observações:</label>
+    <p>{{ receita?.observacoes }}</p>
+  </div>
+
+
+  <div>
+    <button (click)="editarReceita(receita?.id)">Editar</button>
+  </div>
+</section>
